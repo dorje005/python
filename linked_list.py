@@ -12,7 +12,6 @@ class linked_list:
 		curr = self.get_head()
 		if start == curr:
 			self.set_head(curr.get_next())
-			print("deleting head")
 			return
 		while curr != start and curr is not None:
 			prev = curr
