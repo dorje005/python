@@ -45,3 +45,18 @@ def insertion_sort_linked_list(linked_list):
 			must_swap = False
 		curr_node = curr_node.get_next()
 	return linked_list
+
+def delete_duplicates(linked_list):
+	if size(linked_list) <= 1:
+		return linked_list
+	curr_head = linked_list.get_head()
+	while curr_head is not None:
+		curr_data = curr_head.get_data()
+		start = curr_head.get_next()
+		while start is not None:
+			if start.get_data() == curr_data:
+				linked_list.delete_node(start, curr_data)
+			start = start.get_next()
+		curr_head = curr_head.get_next()
+	return linked_list
+	
