@@ -62,10 +62,8 @@ def delete_duplicates(linked_list):
 	
 def size(linked_list):
 	head = linked_list.get_head()
-	if head is None:
-		return 0
-	i = 1
-	while head.get_next() is not None:
+	i = 0
+	while head is not None:
 		i = i + 1
 		head = head.get_next()
 	return i
@@ -107,3 +105,18 @@ def insertion_sort_linked_list(linked_list):
 			must_swap = False
 		curr_node = curr_node.get_next()
 	return linked_list
+
+def find_nth_last_element(linked_list, n):
+	num_nodes = size(linked_list)
+	if num_nodes == 0:
+		return 
+	if num_nodes == n:
+		return linked_list.get_head()
+	iter = linked_list.get_head()
+	nodes_to_traverse = num_nodes - n
+	i = 0 
+	while i < nodes_to_traverse and iter is not None:
+		iter = iter.get_next()
+		i = i + 1
+	return iter
+	
