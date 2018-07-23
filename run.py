@@ -1,27 +1,3 @@
-# a = node(3)
-# b = node(4)
-# c = node(2)
-# d = node(1)
-#
-# a.set_next(b)
-# b.set_next(c)
-# c.set_next(d)
-
-# a = node(9)
-# b = node(1)
-# c = node(3)
-# d = node(2)
-# e = node(10)
-# f = node(2)
-# g = node(0)
-
-# a.set_next(b)
-# b.set_next(c)
-# c.set_next(d)
-# d.set_next(e)
-# e.set_next(f)
-# f.set_next(g)
-
 a = node(9)
 b = node(9)
 c = node(9)
