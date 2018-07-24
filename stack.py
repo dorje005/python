@@ -1,9 +1,11 @@
 class stack:
-	def __init__(self, top=None):
-		self._top = top
+	def __init__(self):
+		self._top = None
 		self._prev_min = None
 	
 	def top(self):
+		if self._top is None:
+			return 
 		return self._top.get_data()
 	
 	def is_empty(self):
@@ -11,30 +13,31 @@ class stack:
 			return True
 		return False
 	
-	def push(self, node):
+	def push(self, data):
+		item = node(data)
 		if self.is_empty():
-			node.set_stack_min(node.get_data())
-			self._prev_min = node.get_data()
-		if node.get_data() < self._prev_min:
-			node.set_stack_min(node.get_data())
-			self._prev_min = node.get_data()
+			item.set_stack_min(item.get_data())
+			self._prev_min = item.get_data()
+		if item.get_data() < self._prev_min:
+			item.set_stack_min(item.get_data())
+			self._prev_min = item.get_data()
 		else:
-			node.set_stack_min(self._prev_min)
-		node.set_next(self._top)
-		self._top = node
+			item.set_stack_min(self._prev_min)
+		item.set_next(self._top)
+		self._top = item
 		
 	def pop(self):
 		if self.is_empty():
 			return None
-		node = self._top
+		item = self._top
 		self._top = self._top.get_next()
-		return node.get_data()
+		return item.get_data()
 	
 	def find_min(self):
 		if self.is_empty():
 			return None
-		node = self._top
-		return node.get_stack_min()
+		item = self._top
+		return item.get_stack_min()
 		
 class node:
 	def __init__(self, data, stack_min=None):
