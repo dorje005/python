@@ -6,6 +6,7 @@ def sort_stack(s, result, peg_a, peg_b):
 		item = s.pop()
 		if min == item:
 			result.push(item)
+			print("MIN: ", item, " popped!")
 		else:
 			peg_a.push(item)
 		return sort_stack(s, result, peg_a, peg_b)
@@ -14,14 +15,16 @@ def sort_stack(s, result, peg_a, peg_b):
 		item = peg_a.pop()
 		if min == item:
 			result.push(item)
+			print("MIN: ", item, " popped!")
 		else:
-			peg_a.push(item)
+			peg_b.push(item)
 		return sort_stack(s, result, peg_a, peg_b)
 	elif not peg_b.is_empty():
 		min = peg_b.find_min()
 		item = peg_b.pop()
 		if min == item:
 			result.push(item)
+			print("MIN: ", item, " popped!")
 		else:
 			peg_a.push(item)
 		return sort_stack(s, result, peg_a, peg_b)
